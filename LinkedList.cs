@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LinkedListProgram
+﻿namespace LinkedListProgram
 {
     public class LinkedList
     {
@@ -25,27 +19,52 @@ namespace LinkedListProgram
                     temp = temp.Next;
                 }
                 temp.Next = node;
-
             }
-            Console.WriteLine($"{node.Data} inserted into linked list ");
+            Console.WriteLine("{0} inserted into Linked List", node.Data);
         }
 
         public void Display()
         {
-            Node temp = head;
+            Node temp = this.head;
             if (temp == null)
             {
-                Console.WriteLine("Linkedlist is empty");
+                Console.WriteLine("Linked List is empty");
                 return;
             }
             while (temp != null)
             {
-                Console.Write(temp.Data + " ");
+                Console.WriteLine(temp.Data + " ");
                 temp = temp.Next;
             }
-
-
         }
-
+        internal Node Insertion(int position, int Data)
+        {
+            if (position < 1)
+                Console.WriteLine("Invalid position");
+            if (position == 1)
+            {
+                var newNode = new Node(Data);
+                newNode.Next = this.head;
+                head = newNode;
+            }
+            else
+            {
+                while (position-- != 0)
+                {
+                    if (position == 1)
+                    {
+                        Node node = new Node(Data);
+                        node.Next = this.head.Next;
+                        head.Next = node;
+                        break;
+                    }
+                    head = head.Next;
+                }
+                if (position != 1)
+                    Console.WriteLine("Position out of range");
+            }
+            return head;
+        }
     }
+
 }
