@@ -16,5 +16,3 @@ namespace LinkedListProgram
         }
     }
 }
-Footer
-© 2023 GitHub,
