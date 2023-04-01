@@ -37,34 +37,49 @@
                 temp = temp.Next;
             }
         }
-        internal Node Insertion(int position, int Data)
+
+        /*
+        public Node Insertion(int position, int Data)
+      {
+        if (position < 1)
+            Console.WriteLine("Invalid position");
+        if (position == 1)
         {
-            if (position < 1)
-                Console.WriteLine("Invalid position");
-            if (position == 1)
-            {
-                var newNode = new Node(Data);
-                newNode.Next = this.head;
-                head = newNode;
-            }
-            else
-            {
-                while (position-- != 0)
-                {
-                    if (position == 1)
-                    {
-                        Node node = new Node(Data);
-                        node.Next = this.head.Next;
-                        head.Next = node;
-                        break;
-                    }
-                    head = head.Next;
-                }
-                if (position != 1)
-                    Console.WriteLine("Position out of range");
-            }
-            return head;
+            var newNode = new Node(Data);
+            newNode.Next = this.head;
+            head = newNode;
         }
+        else
+        {
+            while (position-- != 0)
+            {
+                if (position == 1)
+                {
+                    Node node = new Node(Data);
+                    node.Next = this.head.Next;
+                    head.Next = node;
+                    break;
+                }
+                head = head.Next;
+            }
+            if (position != 1)
+                Console.WriteLine("Position out of range");
+        }
+        return head;
+       }
+        */
+
+        //Delete node
+        public Node Delete()
+        {
+            if (this.head == null)
+            {
+                return null;
+            }
+            this.head = this.head.Next;
+            return this.head;
+        }
+
     }
 
 }
